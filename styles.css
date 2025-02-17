@@ -1,0 +1,423 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: #022e5a;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+section {
+    max-width: 1000px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    overflow: visible; /* Permite que cresça conforme o conteúdo */
+}
+
+#profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px; /* Adiciona espaço entre o texto e a foto */
+}
+
+#profile-pic {
+    width: 300px; /* Largura fixa */
+    height: 300px; /* Altura fixa */
+    border-radius: 50%; /* Transforma a imagem em um círculo */
+    border: 3px solid #022e5a; /* Borda ao redor da foto */
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+    object-position: center; /* Centraliza a imagem no espaço */
+}
+
+#experiencia {
+    max-width: 1045px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Alterado para "hidden" */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box; /* Adicionado */
+}
+
+.experiencia-item {
+    width: 100%; /* Garante que ocupe toda a largura da section */
+    box-sizing: border-box; /* Adicionado */
+}
+
+.gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden; /* Esconde o conteúdo que ultrapassa */
+    margin: 10px 0; /* Adiciona margem para separar a galeria do texto */
+}
+
+/* Tamanho da galeria (incluindo imagens e vídeo) */
+.gallery-container img,
+.gallery-container video {
+    width: 250px;
+    height: 150px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    object-fit: cover; /* Ajuste de exibição de vídeo */
+}
+
+/* Quando o vídeo for clicado, ele deve manter o tamanho máximo */
+.video-container video {
+    max-width: 100%;  /* Faz o vídeo se ajustar ao tamanho máximo disponível */
+    max-height: 100%; /* Limita a altura do vídeo */
+}
+
+/* Modal ou lightbox, se necessário */
+.lightbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8); /* Cor de fundo escurecida */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+
+.lightbox video {
+    max-width: 80%;  /* Limita o vídeo a 80% da largura da tela */
+    max-height: 80%; /* Limita a altura do vídeo a 80% da tela */
+}
+
+.gallery video {
+    width: 250px; /* Mesmo tamanho das imagens */
+    height: 150px; /* Mesmo tamanho das imagens */
+    border-radius: 8px; /* Borda arredondada para combinar */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); /* Sombra igual às imagens */
+    flex-shrink: 0; /* Evita que o vídeo diminua de tamanho */
+    object-fit: cover; /* Garante que o vídeo se ajuste ao espaço */
+}
+
+.gallery-container {
+    display: flex;
+    overflow-x: auto; /* Adiciona rolagem horizontal */
+    gap: 10px; /* Espaço entre as imagens */
+    padding: 10px 0; /* Espaçamento interno */
+    scrollbar-width: thin; /* Estilo da barra de rolagem (para navegadores modernos) */
+    scrollbar-color: #888 #f1f1f1; /* Cor da barra de rolagem */
+}
+
+.gallery-container::-webkit-scrollbar {
+    height: 8px; /* Altura da barra de rolagem */
+}
+
+.gallery-container::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Cor do fundo da barra de rolagem */
+    border-radius: 4px;
+}
+
+.gallery-container::-webkit-scrollbar-thumb {
+    background: #888; /* Cor da barra de rolagem */
+    border-radius: 4px;
+}
+
+.gallery-container::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Cor da barra de rolagem ao passar o mouse */
+}
+
+.gallery img {
+    width: 250px;
+    height: 150px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    flex-shrink: 0; /* Impede que as imagens encolham */
+}
+
+footer {
+    background-color: #022e5a;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+/* Estilos para os ícones das redes sociais */
+.social-links a {
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* WhatsApp */
+.social-links a.fa-whatsapp {
+    color: #25D366; /* Verde do WhatsApp */
+}
+
+.social-links a.fa-whatsapp:hover {
+    transform: scale(1.2); /* Aumenta o ícone ao passar o mouse */
+}
+
+/* Instagram */
+.social-links a.fa-instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    -webkit-background-clip: text; /* Aplica o gradiente ao texto (ícone) */
+    -webkit-text-fill-color: transparent; /* Torna o ícone transparente para mostrar o gradiente */
+    background-clip: text;
+}
+
+.social-links a.fa-instagram:hover {
+    transform: scale(1.2); /* Aumenta o ícone ao passar o mouse */
+}
+
+/* LinkedIn */
+.social-links a.fa-linkedin {
+    color: #0077B5; /* Azul do LinkedIn */
+}
+
+.social-links a.fa-linkedin:hover {
+    transform: scale(1.2); /* Aumenta o ícone ao passar o mouse */
+}
+
+/* Estilos para os ícones de contato (WhatsApp e Email) */
+.contact-info .fab,
+.contact-info .fas {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.contact-info .fa-whatsapp {
+    color: #25D366; /* Verde do WhatsApp */
+}
+
+.contact-info .fa-envelope {
+    color: #0077B5; /* Azul do LinkedIn (ou outra cor de sua preferência) */
+}
+
+/*  teste para ZOMM DE IMAGEM /
+
+/* Preload images */
+body:after {
+    content: url(../images/close.png) url(../images/loading.gif) url(../images/prev.png) url(../images/next.png);
+    display: none;
+  }
+  
+  body.lb-disable-scrolling {
+    overflow: hidden;
+  }
+  
+  .lightboxOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: black;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+    opacity: 0.8;
+    display: none;
+  }
+  
+  .lightbox {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+    text-align: center;
+    line-height: 0;
+    font-weight: normal;
+  }
+  
+  .lightbox .lb-image {
+    display: block;
+    height: auto;
+    max-width: inherit;
+    border-radius: 3px;
+  }
+  
+  .lightbox a img {
+    border: none;
+  }
+  
+  .lb-outerContainer {
+    position: relative;
+    background-color: white;
+    zoom: 1;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    border-radius: 4px;
+  }
+  
+  .lb-outerContainer:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .lb-container {
+    padding: 4px;
+  }
+  
+  .lb-loader {
+    position: absolute;
+    top: 43%;
+    left: 0;
+    height: 25%;
+    width: 100%;
+    text-align: center;
+    line-height: 0;
+  }
+  
+  .lb-cancel {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+    background: url(../images/loading.gif) no-repeat;
+  }
+  
+  .lb-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+  }
+  
+  .lb-container > .nav {
+    left: 0;
+  }
+  
+  .lb-nav a {
+    outline: none;
+    background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
+  }
+  
+  .lb-prev, .lb-next {
+    height: 100%;
+    cursor: pointer;
+    display: block;
+  }
+  
+  .lb-nav a.lb-prev {
+    width: 34%;
+    left: 0;
+    float: left;
+    background: url(../images/prev.png) left 48% no-repeat;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    -webkit-transition: opacity 0.6s;
+    -moz-transition: opacity 0.6s;
+    -o-transition: opacity 0.6s;
+    transition: opacity 0.6s;
+  }
+  
+  .lb-nav a.lb-prev:hover {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+  }
+  
+  .lb-nav a.lb-next {
+    width: 64%;
+    right: 0;
+    float: right;
+    background: url(../images/next.png) right 48% no-repeat;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    -webkit-transition: opacity 0.6s;
+    -moz-transition: opacity 0.6s;
+    -o-transition: opacity 0.6s;
+    transition: opacity 0.6s;
+  }
+  
+  .lb-nav a.lb-next:hover {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+  }
+  
+  .lb-dataContainer {
+    margin: 0 auto;
+    padding-top: 5px;
+    zoom: 1;
+    width: 100%;
+    -moz-border-radius-bottomleft: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+  
+  .lb-dataContainer:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .lb-data {
+    padding: 0 4px;
+    color: #ccc;
+  }
+  
+  .lb-data .lb-details {
+    width: 85%;
+    float: left;
+    text-align: left;
+    line-height: 1.1em;
+  }
+  
+  .lb-data .lb-caption {
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1em;
+  }
+  
+  .lb-data .lb-number {
+    display: block;
+    clear: left;
+    padding-bottom: 1em;
+    font-size: 12px;
+    color: #999999;
+  }
+  
+  .lb-data .lb-close {
+    display: block;
+    float: right;
+    width: 30px;
+    height: 30px;
+    background: url(../images/close.png) top right no-repeat;
+    text-align: right;
+    outline: none;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+    opacity: 0.7;
+    -webkit-transition: opacity 0.2s;
+    -moz-transition: opacity 0.2s;
+    -o-transition: opacity 0.2s;
+    transition: opacity 0.2s;
+  }
+  
+  .lb-data .lb-close:hover {
+    cursor: pointer;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+  }
+  
